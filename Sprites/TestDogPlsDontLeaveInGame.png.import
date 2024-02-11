@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://der1pr8lbg1vq"
-path="res://.godot/imported/WizardWalk4.png-5472c456b2a040b5bb804e50f8252487.ctex"
+uid="uid://dwvq4nkmnwg2a"
+path="res://.godot/imported/TestDogPlsDontLeaveInGame.png-5bff76834837f40bf884937570d0fc26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WizardWalk4.png"
-dest_files=["res://.godot/imported/WizardWalk4.png-5472c456b2a040b5bb804e50f8252487.ctex"]
+source_file="res://Sprites/TestDogPlsDontLeaveInGame.png"
+dest_files=["res://.godot/imported/TestDogPlsDontLeaveInGame.png-5bff76834837f40bf884937570d0fc26.ctex"]
 
 [params]
 
