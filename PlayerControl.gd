@@ -44,12 +44,9 @@ func _process(delta):
 		velocity.y -= sign(velocity.y)
 
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "Walk"
-		# See the note below about boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "Up"
-		$AnimatedSprite2D.flip_h = velocity.y < 0
+		$AnimatedSprite2D.flip_v = velocity.y < 0
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * Speed
