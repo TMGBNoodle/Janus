@@ -1132,3 +1132,18 @@ LogConfig: CVar [[framepro.ScopeMinTimeMicroseconds:10]] deferred - dummy variab
 [2024.02.11-17.26.24:071][  2]LogD3D12RHI: Cannot end block when stack is empty
 [2024.02.11-17.26.26:844][ 30]LogSlate: Window 'Content Browser' being destroyed
 [2024.02.11-17.26.26:977][ 30]LogSlate: Window 'Content Browser' being destroyed
+[2024.02.11-17.27.21:999][686]LogSlate: Window 'New Plugin' being destroyed
+[2024.02.11-17.27.22:140][686]LogSlate: Window 'New Plugin' being destroyed
+[2024.02.11-17.27.40:999][869]LogSlate: Window 'Plugins' being destroyed
+[2024.02.11-17.27.41:107][869]LogSlate: Window 'Plugins' being destroyed
+[2024.02.11-17.27.41:107][869]LogDirectoryWatcher: A directory notification for '../../../Engine/Plugins/' was aborted.
+[2024.02.11-17.28.11:744][194]LogDerivedDataCache: C:/Users/tmgro/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.124 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 504 files in 861 folders with total size 12 MiB.
+[2024.02.11-17.33.59:289][274]LogAudioMixer: Warning: AudioMixerPlatformInterface Timeout [ 5 Seconds] waiting for h/w. InstanceID=1
+[2024.02.11-17.43.08:556][274]LogAudioMixer: Display: FMixerNullCallback: Simulating a h/w device callback at [21ms], ThreadID=22324
+[2024.02.11-17.43.08:579][275]LogAutomationController: Ignoring very large delta of 549.36 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.02.11-17.43.09:470][276]LogAudioMixer: Display: Successful Swap new Device is (NumChannels=2, SampleRate=48000, DeviceID={0.0.0.00000000}.{46f5b17d-c2cb-4620-aa5f-31e843af7d40}, Name=Speakers (Realtek(R) Audio)), Reason=AudioMixerPlatformInterface. Timeout waiting for h/w., InstanceID=1, DurationMS=831.02
+[2024.02.11-17.43.09:472][276]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=1
+[2024.02.11-17.43.09:477][276]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=1
+[2024.02.11-17.43.52:916][440]LogSlate: Window 'Plugins' being destroyed
+[2024.02.11-17.43.53:024][440]LogSlate: Window 'Plugins' being destroyed
+[2024.02.11-17.43.53:024][440]LogDirectoryWatcher: A directory notification for '../../../Engine/Plugins/' was aborted.
