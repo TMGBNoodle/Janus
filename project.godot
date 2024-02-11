@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Trials_Of_Janus"
+run/main_scene="res://EnemyMovement.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
