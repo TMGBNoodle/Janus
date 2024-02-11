@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b33oeyl5di4nx"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyMovement.gd" id="1_kmxrh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsyw2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aotk4"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_kmxrh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lsyw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(350, -254)
+shape = SubResource("CircleShape2D_aotk4")
