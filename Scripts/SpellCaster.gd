@@ -17,6 +17,7 @@ func _physics_process(delta):
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
 
 func ShootSpell():
+	print("Fire")
 	#Change to shoot different spells
 	if SPELLBOLT:
 		var spell = SPELLBOLT.instantiate()

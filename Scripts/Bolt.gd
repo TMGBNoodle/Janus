@@ -8,8 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var areas = get_overlapping_areas()
-	print(areas)
+	pass
+	#var areas = get_overlapping_areas()
+	#print(areas)
 		
 func _physics_process(delta):
 	var Direction = Vector2.RIGHT.rotated(rotation)

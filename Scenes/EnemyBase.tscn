@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxkrh54se6qce"]
+
+[ext_resource type="Texture2D" uid="uid://dr5esatvluh0o" path="res://Sprites/TerribleEnemySprite.png" id="1_rrvbc"]
+[ext_resource type="PackedScene" uid="uid://dyo8bmslbhbs2" path="res://Scenes/hurtbox.tscn" id="2_ug6pn"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="3_eoy5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pmsm"]
+size = Vector2(40, 40)
+
+[node name="EnemyBase" type="Node2D"]
+
+[node name="TerribleEnemySprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(5, 5)
+texture = ExtResource("1_rrvbc")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_ug6pn")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_8pmsm")
+
+[node name="status" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_eoy5o")
+
+[connection signal="area_entered" from="Hurtbox" to="status" method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpobpdselahcv"]
+[gd_scene load_steps=9 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
 [ext_resource type="Texture2D" uid="uid://he14nudwbpkr" path="res://Sprites/WizardWalk3.png" id="2_ix0tp"]
 [ext_resource type="Texture2D" uid="uid://xojrb6c3kxkd" path="res://Sprites/WizardWalk1.png" id="3_0g3oj"]
 [ext_resource type="Texture2D" uid="uid://bhar06xfqnsrw" path="res://Sprites/WizardWalk2.png" id="4_c6mjo"]
 [ext_resource type="Texture2D" uid="uid://der1pr8lbg1vq" path="res://Sprites/WizardWalk4.png" id="5_owca6"]
+[ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="6_nmdul"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fro8h"]
 animations = [{
@@ -52,3 +53,4 @@ speed_scale = 5.0
 shape = SubResource("CircleShape2D_a3w85")
 
 [node name="SpellCaster" type="Node" parent="."]
+script = ExtResource("6_nmdul")
