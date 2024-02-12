@@ -10,7 +10,9 @@
 position = Vector2(90, 64)
 
 [node name="EnemyBase" parent="." instance=ExtResource("2_bmsft")]
+
 position = Vector2(393, 114)
 
 [node name="AOETimer" parent="." instance=ExtResource("3_x4aun")]
 position = Vector2(637, 276)
+
