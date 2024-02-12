@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpobpdselahcv"]
+[gd_scene load_steps=10 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
 [ext_resource type="Script" path="res://Scripts/Health.gd" id="1_dbwwl"]
@@ -52,7 +52,6 @@ speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a3w85")
-
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("1_dbwwl")

@@ -47,5 +47,5 @@ func _ready():
 
 func _on_hurtbox_area_entered(hitbox):
 	var base_damage = hitbox.damage
-	self.health -= base_damage
+	self.Damage(hitbox.damage)
 	print("Enemy Hit")
