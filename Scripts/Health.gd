@@ -5,7 +5,7 @@ extends Node
 @export var timerLength = 1
 @export var regen : int = 1
 
-var regenTween
+@onready var regenTween : Tween = create_tween()
 
 @export var health := max_health :
 	set(value):
@@ -30,7 +30,7 @@ func Regen():
 	regenTween.play()
 
 func Damage(damage):
-	if regenTween.is_running():
+	if regenTween:
 		regenTween.kill()
 	damage_timer.stop()
 	damage_timer.wait_time = timerLength
