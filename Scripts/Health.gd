@@ -43,3 +43,9 @@ func _ready():
 	damage_timer.timeout.connect(Regen)
 	Regen()
 	pass # Replace with function body.
+
+
+func _on_hurtbox_area_entered(hitbox):
+	var base_damage = hitbox.damage
+	self.health -= base_damage
+	print("Enemy Hit")
