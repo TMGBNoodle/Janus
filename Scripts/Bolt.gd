@@ -1,5 +1,5 @@
 extends Area2D
-
+var SpellSpeed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,12 +11,15 @@ func _process(delta):
 	var areas = get_overlapping_areas()
 	print(areas)
 		
+func _physics_process(delta):
+	var Direction = Vector2.RIGHT.rotated(rotation)
+	global_position += SpellSpeed *	Direction * delta
 
 func Destroy():
 	queue_free()
 
-func _on_area_entered(area):
-	Destroy()
+#func _on_area_entered(area):
+#	Destroy()
 
 
 func _on_body_entered(body):

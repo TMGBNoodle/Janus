@@ -1,27 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://njinbn30inoq"]
+[gd_scene load_steps=2 format=3 uid="uid://njinbn30inoq"]
 
-[ext_resource type="PackedScene" uid="uid://b8tt8xurc6hcq" path="res://Scenes/Bolt.tscn" id="1_5i0wb"]
-[ext_resource type="Texture2D" uid="uid://dwvq4nkmnwg2a" path="res://Sprites/TestDogPlsDontLeaveInGame.png" id="2_43h4q"]
-[ext_resource type="PackedScene" uid="uid://b33oeyl5di4nx" path="res://Scenes/EnemyMovement.tscn" id="2_rlkxw"]
-[ext_resource type="Script" path="res://Scripts/EnemyMovement.gd" id="4_tnmxm"]
+[ext_resource type="PackedScene" uid="uid://dpobpdselahcv" path="res://Scenes/player.tscn" id="1_bnl0s"]
 
 [node name="WorldNode" type="Node2D"]
 
-[node name="Bolt" parent="." instance=ExtResource("1_5i0wb")]
-position = Vector2(1, 2.38766)
-
-[node name="TestDogPlsDontLeaveInGame" type="Sprite2D" parent="Bolt"]
-position = Vector2(97, 97.6123)
-scale = Vector2(0.0181818, 0.0378657)
-texture = ExtResource("2_43h4q")
-
-[node name="Enemy" parent="." instance=ExtResource("2_rlkxw")]
-position = Vector2(100, 100)
-script = ExtResource("4_tnmxm")
-
-[node name="TestDogPlsDontLeaveInGame" type="Sprite2D" parent="Enemy"]
-position = Vector2(-99, -97)
-scale = Vector2(0.025, 0.0275387)
-texture = ExtResource("2_43h4q")
-
-[editable path="Enemy"]
+[node name="Player" parent="." instance=ExtResource("1_bnl0s")]
