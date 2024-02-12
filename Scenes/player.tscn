@@ -50,3 +50,5 @@ speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a3w85")
+
+[node name="SpellCaster" type="Node" parent="."]
