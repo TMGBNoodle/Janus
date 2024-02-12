@@ -23,6 +23,7 @@ func ShootSpell():
 		var spell = SPELLBOLT.instantiate()
 		get_tree().current_scene.add_child(spell)
 		spell.global_position = get_owner().global_position
+		spell.scale = Vector2(5, 5)
 		
 		var spellRotation = get_owner().global_position.direction_to(get_owner().get_global_mouse_position()).angle()
 		spell.rotation = spellRotation
