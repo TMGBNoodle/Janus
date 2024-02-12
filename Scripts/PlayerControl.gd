@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var Speed = 50
-@export var Health = 10
+@onready var health = get_node("Health")
 
 var screen_size
 
@@ -9,7 +9,9 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size
 
-
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		health.Damage(5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var right = 0
@@ -21,6 +23,7 @@ func _process(delta):
 		right = -1
 	else:
 		right = 0
+		
 		
 	if Input.is_action_pressed("Up"):
 		up = -1
