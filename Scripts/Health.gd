@@ -5,7 +5,7 @@ extends Node
 @export var timerLength = 1
 @export var regen : int = 1
 
-@onready var regenTween : Tween = create_tween()
+@onready var regenTween
 
 @export var health := max_health :
 	set(value):
@@ -24,7 +24,7 @@ func _process(delta):
 	pass
 	
 func Regen():
-	regenTween = get_tree().create_tween()
+	regenTween = create_tween()
 	var regenTime = max_health - health / 2
 	regenTween.interpolate_value(health, max_health-health, 0, regenTime, 0, 0)
 	regenTween.play()
