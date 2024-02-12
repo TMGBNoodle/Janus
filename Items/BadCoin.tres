@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dgbbwpoqgfm1a"]
+
+[ext_resource type="Script" path="res://Items/Item.gd" id="1_asvc5"]
+[ext_resource type="Texture2D" uid="uid://cxae1fdlqn48w" path="res://Sprites/ItemSprites/TerribleCoin.png" id="2_372ht"]
+
+[resource]
+script = ExtResource("1_asvc5")
+name = "BadCoin"
+description = "BadCoin"
+texture = ExtResource("2_372ht")
