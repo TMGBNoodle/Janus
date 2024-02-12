@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://njinbn30inoq"]
+[gd_scene load_steps=4 format=3 uid="uid://b3y7mcm8216ms"]
 
 [ext_resource type="PackedScene" uid="uid://dpobpdselahcv" path="res://Scenes/player.tscn" id="1_bnl0s"]
-[ext_resource type="PackedScene" uid="uid://bxkrh54se6qce" path="res://Scenes/EnemyBase.tscn" id="2_bmsft"]
+[ext_resource type="PackedScene" uid="uid://bhejgwmth0ugr" path="res://Scenes/EnemyBase.tscn" id="2_bmsft"]
+[ext_resource type="PackedScene" uid="uid://b4e75jesk516q" path="res://Scenes/aoe_timer.tscn" id="3_x4aun"]
 
 [node name="WorldNode" type="Node2D"]
 
@@ -10,3 +11,6 @@ position = Vector2(90, 64)
 
 [node name="EnemyBase" parent="." instance=ExtResource("2_bmsft")]
 position = Vector2(393, 114)
+
+[node name="AOETimer" parent="." instance=ExtResource("3_x4aun")]
+position = Vector2(637, 276)

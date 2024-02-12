@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4e75jesk516q"]
+
+[ext_resource type="Texture2D" uid="uid://bpbwhtjqiyed8" path="res://Sprites/AOE.png" id="1_d1por"]
+[ext_resource type="Script" path="res://AOETimer.gd" id="1_gjpyb"]
+
+[node name="AOETimer" type="Sprite2D"]
+texture = ExtResource("1_d1por")
+script = ExtResource("1_gjpyb")
