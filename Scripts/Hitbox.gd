@@ -1,5 +1,5 @@
 extends Area2D
-var health = 200
+@export var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,11 +10,4 @@ func _ready():
 func _process(delta):
 	pass
 
-func Damage(damage):
-	health.damage
 
-
-func _on_hurtbox_area_entered(hitbox):
-	var base_damage = hitbox.damage
-	self.health -= base_damage
-	print("Enemy Hit")
