@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://eu7efxo3g2q3"]
+
+[ext_resource type="Script" path="res://Items/InventoryContainer.gd" id="1_7ax4a"]
+[ext_resource type="PackedScene" uid="uid://dnhj38bpxbg2w" path="res://Items/item_container.tscn" id="2_mdeuh"]
+
+[node name="InventoryController" type="Node"]
+
+[node name="InventoryContainer" type="PanelContainer" parent="."]
+offset_right = 304.0
+offset_bottom = 207.0
+script = ExtResource("1_7ax4a")
+
+[node name="TextureRect" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 2
+stretch_mode = 6
+
+[node name="ItemContainer" parent="InventoryContainer" instance=ExtResource("2_mdeuh")]
+layout_mode = 2

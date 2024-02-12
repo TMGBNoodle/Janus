@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnhj38bpxbg2w"]
+
+[ext_resource type="Script" path="res://Items/ItemContainer.gd" id="1_ik8yx"]
+
+[node name="ItemContainer" type="PanelContainer"]
+script = ExtResource("1_ik8yx")
+
+[node name="ItemGrid" type="ItemList" parent="."]
+layout_mode = 2
+max_columns = 2

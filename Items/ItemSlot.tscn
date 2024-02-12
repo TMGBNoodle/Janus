@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://n7yfyxwbkivi"]
+
+[ext_resource type="Texture2D" uid="uid://4atrkfymvocf" path="res://Sprites/ItemSprites/ItemBorder.png" id="1_8laqx"]
+[ext_resource type="Script" path="res://Items/ItemSlot.gd" id="2_j4m8k"]
+[ext_resource type="Texture2D" uid="uid://cxae1fdlqn48w" path="res://Sprites/ItemSprites/TerribleCoin.png" id="2_nhk2c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orqb1"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_8laqx")
+
+[node name="ItemSlot" type="PanelContainer"]
+offset_right = 160.0
+offset_bottom = 160.0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_orqb1")
+script = ExtResource("2_j4m8k")
+
+[node name="IconMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="IconTexture" type="TextureRect" parent="IconMargin"]
+layout_mode = 2
+texture = ExtResource("2_nhk2c")
+stretch_mode = 5
+
+[node name="labelMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="QuantityLabel" type="Label" parent="labelMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "X20"
+horizontal_alignment = 2
+vertical_alignment = 2
