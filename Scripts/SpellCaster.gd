@@ -1,9 +1,10 @@
 extends Node
 
+var SpellOrigin
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,4 +27,16 @@ func ShootSpell():
 		spell.scale = Vector2(1, 1)
 		
 		var spellRotation = get_owner().global_position.direction_to(get_owner().get_global_mouse_position()).angle()
+		spell.rotation = spellRotation
+
+func ShootSpellOffset(Target, Offset:Vector2 = Vector2(0,0)):
+	print("Fire")
+	#Change to shoot different spells
+	if SPELLBOLT:
+		var spell = SPELLBOLT.instantiate()
+		get_tree().current_scene.add_child(spell)
+		spell.global_position = get_owner().global_position + Offset
+		spell.scale = Vector2(1, 1)
+		print(Target.angle())
+		var spellRotation = get_owner().global_position.direction_to(Target).angle()
 		spell.rotation = spellRotation

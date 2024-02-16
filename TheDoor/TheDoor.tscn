@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgsjglbmanmn"]
+
+[ext_resource type="Script" path="res://TheDoor/TheDoor.gd" id="1_7x6q7"]
+[ext_resource type="Texture2D" uid="uid://b33uxmhkk0hje" path="res://TheDoor/Sprites/TheDoor.png" id="2_g04tm"]
+[ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="4_bmdfi"]
+
+[node name="TheDoor" type="Node2D"]
+script = ExtResource("1_7x6q7")
+
+[node name="SpellCaster" type="Node" parent="."]
+script = ExtResource("4_bmdfi")
+
+[node name="TheDoorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_g04tm")
+
+[node name="TheDoorSpriteTimer" type="Timer" parent="."]
