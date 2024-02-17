@@ -32,7 +32,7 @@ func Regen():
 	var regenTime = max_health - health / 2
 
 func regen_timer():
-	get_tree().creat_timer(timerLength).timeout
+	get_tree().create_timer(timerLength).timeout
 	
 func Damage(damage):
 	damage_timer.stop()
