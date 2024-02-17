@@ -25,7 +25,7 @@ func set_health(__new_health : int):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func Regen():
@@ -54,6 +54,7 @@ func _ready():
 
 
 func _on_hurtbox_area_entered(hitbox):
+
 	var base_damage = hitbox.damage
 	effects = hitbox.effects
 	self.Damage(hitbox.damage)

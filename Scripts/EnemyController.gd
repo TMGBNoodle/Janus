@@ -8,11 +8,12 @@ var speedModifier = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	#print(self.position.x, self.position.y)
 	var processedMoveSpeed = moveSpeed * speedModifier
 	self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
-
+  
 func Delete():
 	queue_free()
 

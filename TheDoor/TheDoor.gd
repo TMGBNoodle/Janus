@@ -41,7 +41,7 @@ func _ready():
 		possibleTargets.append_array(enemyArray)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if nextFrame and frameIndex < frameNum:
 		SwitchFrame(spriteFrames[frameIndex])
 		WaitForNextFrame(waitTime)

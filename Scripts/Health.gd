@@ -1,5 +1,7 @@
 extends Node
 
+signal damaged
+signal healing
 
 @export var max_health : int = 200
 @export var timerLength = 1
@@ -22,18 +24,17 @@ func set_health(__new_health : int):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	await damage_timer
 	
 func Regen():
-	regenTween = create_tween()
+	await regen_timer()
 	var regenTime = max_health - health / 2
-	regenTween.interpolate_value(health, max_health-health, 0, regenTime, 0, 0)
-	regenTween.play()
 
+func regen_timer():
+	get_tree().creat_timer(timerLength).timeout
+	
 func Damage(damage):
-	if regenTween:
-		regenTween.kill()
 	damage_timer.stop()
 	damage_timer.wait_time = timerLength
 	var new_health : int = int(clamp(health - damage, 0, max_health))
@@ -42,6 +43,8 @@ func Damage(damage):
 	if self.health <= 0:
 		self.Destroy()
 	pass
+	Regen()
+
 	
 func _ready():
 	damage_timer.timeout.connect(Regen)
@@ -50,7 +53,6 @@ func _ready():
 
 
 func _on_hurtbox_area_entered(hitbox):
-	var base_damage = hitbox.damage
 	self.Damage(hitbox.damage)
 	print("Enemy Hit")
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpobpdselahcv"]
+[gd_scene load_steps=9 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
 [ext_resource type="Script" path="res://Scripts/Health.gd" id="1_dbwwl"]
@@ -37,8 +37,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a3w85"]
-
 [node name="Player" type="Area2D"]
 scale = Vector2(0.278919, 0.278919)
 script = ExtResource("1_5fjkc")
@@ -50,9 +48,6 @@ sprite_frames = SubResource("SpriteFrames_fro8h")
 animation = &"WalkVert"
 speed_scale = 5.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_a3w85")
-
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("1_dbwwl")
 
@@ -60,3 +55,6 @@ script = ExtResource("1_dbwwl")
 
 [node name="SpellCaster" type="Node" parent="."]
 script = ExtResource("6_nmdul")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-53.779, -186.434, 60.9496, -100.388, 82.4612, -17.9263, 190.019, 7.17054, 190.019, 75.2907, 129.07, 129.07, 89.6317, 186.434, 50.1938, 190.019, 14.3411, 125.484, -21.5116, 125.484, -35.8527, 186.434, -100.388, 182.849, -111.143, 114.729, -190.019, 75.2907, -193.605, 10.7558, -64.5349, -35.8527, -39.438, -64.5349)

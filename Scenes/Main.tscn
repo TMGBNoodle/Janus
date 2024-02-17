@@ -15,7 +15,7 @@ position = Vector2(90, 64)
 position = Vector2(393, 114)
 
 [node name="AOETimer" parent="." instance=ExtResource("3_x4aun")]
-position = Vector2(637, 276)
+position = Vector2(109, 104)
 
 [node name="Enemies" type="Node" parent="."]
 
