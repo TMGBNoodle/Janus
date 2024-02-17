@@ -1,5 +1,8 @@
 extends Area2D
-var MoveSpeed = 20
+var moveSpeed = 20
+
+var speedModifier = 0
+var slowEffectPercentage = 0.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,5 +11,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(self.position.x, self.position.y)
-	self.position = self.position.move_toward(Vector2(0,0), delta * MoveSpeed)
+	#print(self.position.x, self.position.y)
+	var processedMoveSpeed = moveSpeed * slowEffectPercentage
+	self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)

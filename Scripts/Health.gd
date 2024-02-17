@@ -7,6 +7,8 @@ extends Node
 
 @onready var regenTween
 
+signal node_destroyed
+
 @export var health := max_health :
 	set(value):
 		health = set_health(value)
@@ -35,8 +37,10 @@ func Damage(damage):
 	damage_timer.stop()
 	damage_timer.wait_time = timerLength
 	var new_health : int = int(clamp(health - damage, 0, max_health))
-	set_health(new_health)
+	self.health = new_health
 	damage_timer.start()
+	if self.health <= 0:
+		self.Destroy()
 	pass
 	
 func _ready():
@@ -49,3 +53,7 @@ func _on_hurtbox_area_entered(hitbox):
 	var base_damage = hitbox.damage
 	self.Damage(hitbox.damage)
 	print("Enemy Hit")
+	
+func Destroy():
+	emit_signal("node_destroyed")
+	self.queue_free

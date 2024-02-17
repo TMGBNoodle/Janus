@@ -1,11 +1,16 @@
 extends Node2D
-
+var statusEffects = load("res://Scripts/StatusEffects.gd")
 
 @export var max_health : int = 200
 @export var timerLength = 1
 @export var regen : int = 1
 
 @onready var regenTween
+
+signal status_destroyed
+signal status_slow
+
+var effects = []
 
 @export var health := max_health :
 	set(value):
@@ -35,8 +40,11 @@ func Damage(damage):
 	damage_timer.stop()
 	damage_timer.wait_time = timerLength
 	var new_health : int = int(clamp(health - damage, 0, max_health))
-	set_health(new_health)
+	self.health = new_health
+	#print(new_health)
 	damage_timer.start()
+	if health <= 0:
+		Destroy()
 	pass
 	
 func _ready():
@@ -47,5 +55,19 @@ func _ready():
 
 func _on_hurtbox_area_entered(hitbox):
 	var base_damage = hitbox.damage
+	effects = hitbox.effects
 	self.Damage(hitbox.damage)
-	print("Enemy Hit")
+	ManageEffects()
+	#print("Enemy Hit")
+	
+func Destroy():
+	emit_signal("status_destroyed")
+	
+func SendSlowSignal():
+	emit_signal("status_slow")
+
+func ManageEffects():
+	for i in effects:
+		match i:
+			StatusEffectProperties.statusEffects.SLOW:
+				SendSlowSignal()

@@ -1,19 +1,19 @@
-extends Area2D
+extends Node
+enum statusEffects 
+{
+	SLOW
+}
 
-@export var damage = 10
-@export var slow: bool = false
-
-var effects = []
-
+var slowSpeedModifier = 0.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if slow:
-		effects.append(StatusEffectProperties.statusEffects.SLOW)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
+	
+func GetSlowSpeedModifier():
+	return slowSpeedModifier
