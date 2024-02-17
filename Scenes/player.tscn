@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
-[ext_resource type="Script" path="res://Scripts/Health.gd" id="1_dbwwl"]
 [ext_resource type="Texture2D" uid="uid://he14nudwbpkr" path="res://Sprites/WizardWalk3.png" id="2_ix0tp"]
 [ext_resource type="Texture2D" uid="uid://xojrb6c3kxkd" path="res://Sprites/WizardWalk1.png" id="3_0g3oj"]
 [ext_resource type="Texture2D" uid="uid://bhar06xfqnsrw" path="res://Sprites/WizardWalk2.png" id="4_c6mjo"]
 [ext_resource type="Texture2D" uid="uid://der1pr8lbg1vq" path="res://Sprites/WizardWalk4.png" id="5_owca6"]
 [ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="6_nmdul"]
+[ext_resource type="Script" path="res://Scripts/Status.gd" id="7_1xalj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fro8h"]
 animations = [{
@@ -39,6 +39,7 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 scale = Vector2(0.278919, 0.278919)
+collision_mask = 7
 script = ExtResource("1_5fjkc")
 Speed = 100
 
@@ -48,13 +49,14 @@ sprite_frames = SubResource("SpriteFrames_fro8h")
 animation = &"WalkVert"
 speed_scale = 5.0
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("1_dbwwl")
-
-[node name="DamageTimer" type="Timer" parent="Health"]
-
 [node name="SpellCaster" type="Node" parent="."]
 script = ExtResource("6_nmdul")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-53.779, -186.434, 60.9496, -100.388, 82.4612, -17.9263, 190.019, 7.17054, 190.019, 75.2907, 129.07, 129.07, 89.6317, 186.434, 50.1938, 190.019, 14.3411, 125.484, -21.5116, 125.484, -35.8527, 186.434, -100.388, 182.849, -111.143, 114.729, -190.019, 75.2907, -193.605, 10.7558, -64.5349, -35.8527, -39.438, -64.5349)
+
+[node name="Status" type="Node2D" parent="."]
+script = ExtResource("7_1xalj")
+timerLength = 3
+
+[node name="damageTimer" type="Timer" parent="Status"]

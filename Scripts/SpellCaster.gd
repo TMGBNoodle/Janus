@@ -9,7 +9,8 @@ func _ready():
 enum Spells 
 {
 	SpellBolt,
-	IceBolt
+	IceBolt,
+	Barrage
 }
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
