@@ -1,8 +1,9 @@
+
 [gd_scene load_steps=5 format=3 uid="uid://b8tt8xurc6hcq"]
 
 [ext_resource type="Script" path="res://Scripts/Bolt.gd" id="1_tmlks"]
 [ext_resource type="Texture2D" uid="uid://blmss5my18oda" path="res://Sprites/TerribleBolt.png" id="2_ewbnp"]
-[ext_resource type="PackedScene" uid="uid://dwrfksnmgsiep" path="res://Scenes/hitbox.tscn" id="3_xcltb"]
+[ext_resource type="PackedScene" uid="uid://dg3dl7o3n32t3" path="res://Scenes/hitbox.tscn" id="3_xcltb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1lr2"]
 size = Vector2(85, 43)
