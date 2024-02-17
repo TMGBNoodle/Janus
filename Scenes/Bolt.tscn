@@ -1,29 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://v2ovc3p0tsna"]
+
+[gd_scene load_steps=5 format=3 uid="uid://b8tt8xurc6hcq"]
 
 [ext_resource type="Script" path="res://Scripts/Bolt.gd" id="1_tmlks"]
 [ext_resource type="Texture2D" uid="uid://blmss5my18oda" path="res://Sprites/TerribleBolt.png" id="2_ewbnp"]
 [ext_resource type="PackedScene" uid="uid://dg3dl7o3n32t3" path="res://Scenes/hitbox.tscn" id="3_xcltb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hwbv"]
-size = Vector2(8, 4)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1lr2"]
-size = Vector2(8, 4)
+size = Vector2(85, 43)
 
 [node name="Bolt" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_tmlks")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7hwbv")
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0.5, -1.19209e-07)
 scale = Vector2(0.35, 0.2)
 
 [node name="TerribleBolt" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3.8147e-06, -3.8147e-06)
 rotation = 0.785398
+scale = Vector2(10, 10)
 texture = ExtResource("2_ewbnp")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_xcltb")]
@@ -36,5 +34,6 @@ shape = SubResource("RectangleShape2D_u1lr2")
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 
 [editable path="Hitbox"]

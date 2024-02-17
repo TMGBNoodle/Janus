@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqausou70h2j2"]
+
+[ext_resource type="Script" path="res://Scripts/TestScripts/InventoryTest.gd" id="1_2lso8"]
+[ext_resource type="PackedScene" uid="uid://eu7efxo3g2q3" path="res://Items/InventoryController.tscn" id="2_kt0bx"]
+
+[node name="InventoryTest" type="Node"]
+script = ExtResource("1_2lso8")
+
+[node name="InventoryController" parent="." instance=ExtResource("2_kt0bx")]
+
+[editable path="InventoryController"]

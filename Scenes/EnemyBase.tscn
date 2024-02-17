@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhejgwmth0ugr"]
+[gd_scene load_steps=6 format=3 uid="uid://bxkrh54se6qce"]
 
+[ext_resource type="Script" path="res://Scripts/EnemyController.gd" id="1_pngqa"]
 [ext_resource type="Texture2D" uid="uid://dr5esatvluh0o" path="res://Sprites/TerribleEnemySprite.png" id="1_rrvbc"]
-[ext_resource type="PackedScene" path="res://Scenes/hurtbox.tscn" id="2_ug6pn"]
-[ext_resource type="Script" path="res://Scripts/Health.gd" id="3_eoy5o"]
+[ext_resource type="PackedScene" uid="uid://dyo8bmslbhbs2" path="res://Scenes/hurtbox.tscn" id="2_ug6pn"]
+[ext_resource type="Script" path="res://Scripts/Status.gd" id="4_1s3pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pmsm"]
 size = Vector2(40, 40)
 
 [node name="EnemyBase" type="Node2D"]
+script = ExtResource("1_pngqa")
 
 [node name="TerribleEnemySprite" type="Sprite2D" parent="."]
 position = Vector2(0, 3.8147e-06)
@@ -21,9 +23,11 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_8pmsm")
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("3_eoy5o")
+[node name="Status" type="Node2D" parent="."]
+script = ExtResource("4_1s3pg")
 
-[node name="DamageTimer" type="Timer" parent="Health"]
+[node name="damageTimer" type="Timer" parent="Status"]
+
+[connection signal="area_entered" from="Hurtbox" to="Status" method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
