@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpobpdselahcv"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="1_dbwwl"]
+[ext_resource type="Texture2D" uid="uid://he14nudwbpkr" path="res://Sprites/WizardWalk3.png" id="2_ix0tp"]
+[ext_resource type="Texture2D" uid="uid://xojrb6c3kxkd" path="res://Sprites/WizardWalk1.png" id="3_0g3oj"]
+[ext_resource type="Texture2D" uid="uid://bhar06xfqnsrw" path="res://Sprites/WizardWalk2.png" id="4_c6mjo"]
+[ext_resource type="Texture2D" uid="uid://der1pr8lbg1vq" path="res://Sprites/WizardWalk4.png" id="5_owca6"]
+[ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="6_nmdul"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fro8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ix0tp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0g3oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6mjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_owca6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6mjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0g3oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ix0tp")
+}],
+"loop": true,
+"name": &"WalkVert",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3w85"]
+
+[node name="Player" type="Area2D"]
+scale = Vector2(0.278919, 0.278919)
+script = ExtResource("1_5fjkc")
+Speed = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -6.28294
+sprite_frames = SubResource("SpriteFrames_fro8h")
+animation = &"WalkVert"
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a3w85")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("1_dbwwl")
+
+[node name="DamageTimer" type="Timer" parent="Health"]
+
+[node name="SpellCaster" type="Node" parent="."]
+script = ExtResource("6_nmdul")

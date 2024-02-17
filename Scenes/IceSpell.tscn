@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp6a6b8s87kqr"]
+
+[ext_resource type="Script" path="res://Scripts/Bolt.gd" id="1_gts4q"]
+[ext_resource type="Texture2D" uid="uid://dhevyuhgm6iuq" path="res://Sprites/SpellSprites/IceAttack.png" id="3_35t15"]
+[ext_resource type="PackedScene" uid="uid://dwrfksnmgsiep" path="res://Scenes/hitbox.tscn" id="3_jj8yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1lr2"]
+size = Vector2(85, 43)
+
+[node name="IceSpell" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_gts4q")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, -1.19209e-07)
+scale = Vector2(0.35, 0.2)
+
+[node name="Hitbox" parent="." instance=ExtResource("3_jj8yo")]
+collision_layer = 8
+collision_mask = 4
+slow = true
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_u1lr2")
+
+[node name="IceAttack" type="Sprite2D" parent="."]
+position = Vector2(3.33786e-06, -2.89542)
+rotation = 1.5708
+scale = Vector2(6.10839, 5.3357)
+texture = ExtResource("3_35t15")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+
+[editable path="Hitbox"]
