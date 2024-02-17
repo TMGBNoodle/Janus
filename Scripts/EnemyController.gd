@@ -13,20 +13,21 @@ var isSlowed: bool = false
 
 func _process(delta):
 	#print(self.position.x, self.position.y)
-	var processedMoveSpeed = moveSpeed
 	if isSlowed:
-		processedMoveSpeed = processedMoveSpeed * StatusEffectProperties.slowSpeedModifier
-	self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
+		get_parent().isSlowed = true
+	#self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
   
 func Delete():
 	queue_free()
 
 func _on_status_status_destroyed():
 	print("enemy killed")
-	Delete()
 	emit_signal("enemy_base_destroyed")
+	Delete()
+	
 
 
 func _on_status_status_slow():
 	isSlowed = true
 	#speedModifier *= StatusEffectProperties.slowSpeedModifier
+
