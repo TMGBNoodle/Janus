@@ -27,10 +27,13 @@ func _process(_delta):
 	
 func Regen():
 	await regen_timer()
-	var regenTime = max_health - health / 2
+	await heal()
 
+func heal():
+	print(healing)
+	
 func regen_timer():
-	get_tree().creat_timer(timerLength).timeout
+	get_tree().create_timer(timerLength).timeout
 	
 func Damage(damage):
 	damage_timer.stop()
