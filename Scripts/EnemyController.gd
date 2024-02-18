@@ -18,7 +18,9 @@ func _process(delta):
 	#self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
   
 func Delete():
-	queue_free()
+	var destroy = create_tween()
+	destroy.tween_property($AnimatedSprite2D, "modulate", Color(0, 0 , 0, 0), 1)
+	destroy.tween_callback(self.queue_free)
 
 func _on_status_status_destroyed():
 	print("enemy killed")
