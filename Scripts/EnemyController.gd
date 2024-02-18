@@ -21,12 +21,8 @@ func Delete():
 	queue_free()
 
 func _on_status_status_destroyed():
-	print("enemy killed")
-	
 	emit_signal("enemy_base_destroyed")
-	Delete()
 	
-
 
 func _on_status_status_slow():
 	isSlowed = true

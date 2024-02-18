@@ -21,7 +21,7 @@ var effects = []
 func set_health(__new_health : int):
 	return int(clamp(__new_health, 0, max_health))
 
-@onready var damage_timer : Timer = null#get_node("DamageTimer")
+@onready var damage_timer : Timer = get_node("damageTimer")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,3 +75,13 @@ func ManageEffects():
 		match i:
 			StatusEffectProperties.statusEffects.SLOW:
 				SendSlowSignal()
+				
+
+
+func _on_damage_timer_timeout():
+	damaged = false
+	while health < max_health:
+		await RegenTimer()
+		if damaged:
+			break
+		health += regen
