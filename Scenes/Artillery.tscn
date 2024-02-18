@@ -1,14 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm07bncugm3xs"]
+[gd_scene format=3 uid="uid://dnty77ipstae7"]
 
-[ext_resource type="Texture2D" uid="uid://dvve6atjre64c" path="res://Sprites/ArtilleryBullet.png" id="1_p4jnu"]
-[ext_resource type="Script" path="res://Scenes/artillery.gd" id="2_4svec"]
+[node name="Area2D" type="Area2D"]
 
-[node name="Artillery" type="Sprite2D"]
-z_index = 1
-z_as_relative = false
-position = Vector2(121, 150)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_p4jnu")
-script = ExtResource("2_4svec")
-
-[connection signal="completed" from="." to="." method="_on_completed"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

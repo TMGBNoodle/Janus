@@ -1,19 +1,16 @@
 extends Node
 
 var SpellOrigin
-var tweenBar : Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tweenBar = self.get_parent().get_node("RegenBar")
+	pass
 
 enum Spells 
 {
 	SPELLBOLT,
-	ICEBOLT,
-	BARRAGE
+	ICEBOLT
 }
-var debounce = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -21,16 +18,7 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("ActionAttack")):
-		if debounce == false:
-			tweenBar.scale = Vector2(0.01, 0.43)
-			debounce = true
-			ShootSpell(Spells.ICEBOLT)
-			var reload = create_tween()
-			reload.tween_property(tweenBar, "scale", Vector2(1, 0.43), 1)
-			reload.tween_callback(debouncist)
-
-func debouncist():
-	debounce = false
+		ShootSpell(Spells.ICEBOLT)
 #Define all Spells
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
 @export var ICESPELL: PackedScene = preload("res://Scenes/IceSpell.tscn")

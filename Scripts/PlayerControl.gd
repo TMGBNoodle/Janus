@@ -1,13 +1,17 @@
 extends Area2D
 
 @export var Speed = 50
-@onready var health = get_node("Status")
+@onready var health = get_node("Health")
 
 var screen_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		health.Damage(5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var right = 0
@@ -53,14 +57,7 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 	position += velocity * delta
-	if position.x < 0:
-		position.x = screen_size.x
-	elif position.x > screen_size.x:
-		position.x = 0
-	if position.y  < 0:
-		position.y = screen_size.y
-	elif position.y > screen_size.y:
-		position.y = 0
+	position = position.clamp(Vector2.ZERO, screen_size)
 	
 #Things that need physics math go here
 

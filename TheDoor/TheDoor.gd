@@ -15,7 +15,6 @@ var spellCircleRadius: float = 70.0
 
 @export var waitTime:float = 1.0
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
-@export var Barrage: PackedScene = preload("res://Scenes/Barrage.tscn")
 @export var ICEBOLT: PackedScene = preload("res://Scenes/IceSpell.tscn")
 
 var SpellCasterNode = null
