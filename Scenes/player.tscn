@@ -1,5 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpobpdselahcv"]
-
+[gd_scene load_steps=11 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
 [ext_resource type="Texture2D" uid="uid://he14nudwbpkr" path="res://Sprites/WizardWalk3.png" id="2_ix0tp"]
@@ -8,13 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://der1pr8lbg1vq" path="res://Sprites/WizardWalk4.png" id="5_owca6"]
 [ext_resource type="Script" path="res://Scripts/Status.gd" id="6_mj2qb"]
 [ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="6_nmdul"]
-
 [ext_resource type="PackedScene" uid="uid://dyo8bmslbhbs2" path="res://Scenes/hurtbox.tscn" id="8_1kvvr"]
 [ext_resource type="Script" path="res://Scenes/GameTimer.gd" id="9_t0kv7"]
-
-[ext_resource type="Script" path="res://Scripts/Status.gd" id="7_1xalj"]
-[ext_resource type="Texture2D" uid="uid://bftw4xhqeo6ab" path="res://Sprites/regenBar.png" id="8_mq5np"]
-
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fro8h"]
 animations = [{
@@ -47,24 +41,19 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 scale = Vector2(0.278919, 0.278919)
-collision_mask = 7
 script = ExtResource("1_5fjkc")
 Speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
-z_as_relative = false
 rotation = -6.28294
 sprite_frames = SubResource("SpriteFrames_fro8h")
 animation = &"WalkVert"
 speed_scale = 5.0
 
-
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("6_mj2qb")
 
 [node name="damageTimer" type="Timer" parent="Health"]
-
 
 [node name="SpellCaster" type="Node" parent="."]
 script = ExtResource("6_nmdul")
@@ -76,7 +65,6 @@ collision_mask = 4
 scale = Vector2(1, 1)
 polygon = PackedVector2Array(-53.779, -186.434, 60.9496, -100.388, 82.4612, -17.9263, 190.019, 7.17054, 190.019, 75.2907, 129.07, 129.07, 89.6317, 186.434, 50.1938, 190.019, 14.3411, 125.484, -21.5116, 125.484, -35.8527, 186.434, -100.388, 182.849, -111.143, 114.729, -190.019, 75.2907, -193.605, 10.7558, -64.5349, -35.8527, -39.438, -64.5349)
 
-
 [node name="GameTimer" type="Node" parent="."]
 script = ExtResource("9_t0kv7")
 
@@ -84,14 +72,3 @@ script = ExtResource("9_t0kv7")
 [connection signal="area_entered" from="Hurtbox" to="Health" method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
-[node name="Status" type="Node2D" parent="."]
-script = ExtResource("7_1xalj")
-timerLength = 3
-
-[node name="damageTimer" type="Timer" parent="Status"]
-
-[node name="RegenBar" type="Sprite2D" parent="."]
-position = Vector2(-3.58527, 215.116)
-scale = Vector2(1, 0.43)
-texture = ExtResource("8_mq5np")
-

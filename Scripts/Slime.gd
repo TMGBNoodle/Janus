@@ -71,10 +71,7 @@ func TurnTowardsPlayer():
 		self.rotation = slimeRotation
 	
 func Destroy():
-	var sprite = get_node("EnemyBase/EnemySprite")
-	var destroy = create_tween()
-	destroy.tween_property(sprite, "modulate", Color(0, 0 , 0, 0), 1)
-	destroy.tween_callback(self.queue_free)
+	self.queue_free()
 
 func _on_enemy_base_enemy_base_destroyed():
 	print("dead")
