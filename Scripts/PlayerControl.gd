@@ -8,10 +8,6 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		health.Damage(5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var right = 0
