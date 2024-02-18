@@ -11,7 +11,7 @@ var slimeIdleIndex = 0
 var nextFrame = true
 var frameWaitTime = 0.5
 
-var moveSpeed = 50
+var moveSpeed = 100
 var isSlowed = false
 
 var moveDirection: Vector2 = Vector2(0,0)
@@ -57,7 +57,7 @@ func ChangeIdleSprite():
 	slimeMoveIndex += 1
 
 func SwitchFrame(frame):
-	#print("slime")
+	print("here")
 	slimeTexture.texture = load(frame)
 	nextFrame = false
 

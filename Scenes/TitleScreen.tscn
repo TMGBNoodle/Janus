@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjxdtov7gkhnc"]
+[gd_scene load_steps=4 format=3 uid="uid://bjxdtov7gkhnc"]
 
+[ext_resource type="Texture2D" uid="uid://c47estfiyi0l3" path="res://Sprites/MenuTestSprites/JanusTitleName.png" id="1_hsaby"]
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_k648u"]
 [ext_resource type="Texture2D" uid="uid://b33uxmhkk0hje" path="res://TheDoor/Sprites/TheDoor.png" id="3_bc85y"]
 
@@ -26,26 +27,30 @@ script = ExtResource("1_k648u")
 [node name="MenuLayout" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayout"]
+[node name="TitleTexture" type="TextureRect" parent="MenuLayout"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 60
-bbcode_enabled = true
-text = "[center]Janus: The One Who Opens[/center]"
-fit_content = true
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.51
+texture = ExtResource("1_hsaby")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Doors" type="HBoxContainer" parent="MenuLayout"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="StartButtonDoorTexture" type="Sprite2D" parent="MenuLayout/Doors"]
 position = Vector2(1075, 150)
 scale = Vector2(7, 7)
 texture = ExtResource("3_bc85y")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Buttons" type="HBoxContainer" parent="MenuLayout"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuLayout/Buttons"]
+[node name="StartButton" type="Button" parent="MenuLayout/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 1005
@@ -61,6 +66,9 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wfgau")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5lrjp")
 text = "Start"
 
-[connection signal="mouse_entered" from="MenuLayout/Buttons/MarginContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
-[connection signal="mouse_exited" from="MenuLayout/Buttons/MarginContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
-[connection signal="pressed" from="MenuLayout/Buttons/MarginContainer/StartButton" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="MenuLayout/Buttons"]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="MenuLayout/Buttons/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuLayout/Buttons/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="MenuLayout/Buttons/StartButton" to="." method="_on_button_pressed"]

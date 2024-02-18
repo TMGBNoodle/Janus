@@ -75,6 +75,8 @@ timerLength = 3
 [node name="damageTimer" type="Timer" parent="Status"]
 
 [node name="RegenBar" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
 position = Vector2(-3.58527, 215.116)
 scale = Vector2(1, 0.43)
 texture = ExtResource("8_mq5np")
