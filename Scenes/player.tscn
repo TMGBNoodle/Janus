@@ -44,6 +44,8 @@ script = ExtResource("1_5fjkc")
 Speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
 rotation = -6.28294
 sprite_frames = SubResource("SpriteFrames_fro8h")
 animation = &"WalkVert"

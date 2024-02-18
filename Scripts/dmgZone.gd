@@ -1,14 +1,26 @@
 extends Area2D
 
-@onready var sprite : Sprite2D = get_node("DamageZone") 
-@onready var collision : CollisionShape2D = get_node("CollisionShape2D")
-var damage = 0
+signal completed
+@onready var sprite : Sprite2D
+@onready var collision : CollisionShape2D
+var damage
+var size
+var duration
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	doExplosion(5, 5, 250)
-	
-func doExplosion(duration, size, ndamage):
+	emit_signal("completed")
+func initialize(nduration, nsize, ndamage):
 	damage = ndamage
+	sprite = await get_node("DamageZone") 
+	print(sprite)
+	collision = await get_node("CollisionShape2D")
+	size = nsize
+	duration = nduration
+	await completed
+	doExplosion()
+	
+func doExplosion():
 	sprite.scale = Vector2(size, size)
 	collision.scale = Vector2(size, size)
 	print(self.get_overlapping_areas())

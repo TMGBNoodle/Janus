@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpobpdselahcv" path="res://Scenes/player.tscn" id="1_bnl0s"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_wdsja"]
 [ext_resource type="PackedScene" uid="uid://bxkrh54se6qce" path="res://Scenes/EnemyBase.tscn" id="2_bmsft"]
-[ext_resource type="PackedScene" uid="uid://b4e75jesk516q" path="res://Scenes/aoe_timer.tscn" id="3_x4aun"]
+[ext_resource type="PackedScene" uid="uid://dnty77ipstae7" path="res://Scenes/Barrage.tscn" id="4_lr7pk"]
 
 [node name="WorldNode" type="Node2D"]
 script = ExtResource("1_wdsja")
@@ -22,8 +22,5 @@ position = Vector2(674, 450)
 [node name="EnemyBase2" parent="Enemies" instance=ExtResource("2_bmsft")]
 position = Vector2(976, 121)
 
-[node name="aoe_timer2" parent="." instance=ExtResource("3_x4aun")]
-position = Vector2(655, 198)
-
-[node name="aoe_timer" parent="." instance=ExtResource("3_x4aun")]
-position = Vector2(235, 352)
+[node name="Barrage2" parent="." instance=ExtResource("4_lr7pk")]
+position = Vector2(635, 256)
