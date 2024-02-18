@@ -6,7 +6,6 @@ var doorTexture2 = preload("res://TheDoor/Sprites/TheDoor2.png")
 var startButtonDoorTexture
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("mainmenu")
 	startButtonDoorTexture = get_node("MenuLayout").get_node("Doors").get_node("StartButtonDoorTexture")
 
 

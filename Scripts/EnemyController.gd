@@ -16,9 +16,7 @@ func _process(delta):
 	if isSlowed:
 		get_parent().isSlowed = true
 	#self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
-  
-func Delete():
-	queue_free()
+ 
 
 func _on_status_status_destroyed():
 	emit_signal("enemy_base_destroyed")

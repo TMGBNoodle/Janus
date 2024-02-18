@@ -1,15 +1,17 @@
 extends Node
 
 var SpellOrigin
+var tweenBar : Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	tweenBar = self.get_parent().get_node("RegenBar")
 
 enum Spells 
 {
 	SPELLBOLT,
-	ICEBOLT
+	ICEBOLT,
+	BARRAGE
 }
 var debounce = false
 var selectedspell = Spells.SPELLBOLT

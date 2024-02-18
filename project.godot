@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Trials_Of_Janus"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 StatusEffectProperties="*res://Scripts/StatusEffectProperties.gd"
+
+[display]
+
+window/size/viewport_width=2400
+window/size/viewport_height=1000
 
 [input]
 
