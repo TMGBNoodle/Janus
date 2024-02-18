@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpobpdselahcv"]
+[gd_scene load_steps=10 format=3 uid="uid://dpobpdselahcv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControl.gd" id="1_5fjkc"]
 [ext_resource type="Texture2D" uid="uid://he14nudwbpkr" path="res://Sprites/WizardWalk3.png" id="2_ix0tp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://der1pr8lbg1vq" path="res://Sprites/WizardWalk4.png" id="5_owca6"]
 [ext_resource type="Script" path="res://Scripts/SpellCaster.gd" id="6_nmdul"]
 [ext_resource type="Script" path="res://Scripts/Status.gd" id="7_1xalj"]
+[ext_resource type="Texture2D" uid="uid://bftw4xhqeo6ab" path="res://Sprites/regenBar.png" id="8_mq5np"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fro8h"]
 animations = [{
@@ -62,3 +63,8 @@ script = ExtResource("7_1xalj")
 timerLength = 3
 
 [node name="damageTimer" type="Timer" parent="Status"]
+
+[node name="RegenBar" type="Sprite2D" parent="."]
+position = Vector2(-3.58527, 215.116)
+scale = Vector2(1, 0.43)
+texture = ExtResource("8_mq5np")

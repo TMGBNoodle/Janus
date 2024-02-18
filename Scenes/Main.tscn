@@ -2,11 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dpobpdselahcv" path="res://Scenes/player.tscn" id="1_bnl0s"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_wdsja"]
-
-[ext_resource type="PackedScene" uid="uid://dnty77ipstae7" path="res://Scenes/Barrage.tscn" id="4_lr7pk"]
-
 [ext_resource type="PackedScene" uid="uid://b42iy8pn7fufn" path="res://Scenes/Slime.tscn" id="4_kycul"]
-
+[ext_resource type="PackedScene" uid="uid://dnty77ipstae7" path="res://Scenes/Barrage.tscn" id="4_lr7pk"]
 
 [node name="WorldNode" type="Node2D"]
 script = ExtResource("1_wdsja")
@@ -14,9 +11,7 @@ script = ExtResource("1_wdsja")
 [node name="Player" parent="." instance=ExtResource("1_bnl0s")]
 position = Vector2(90, 64)
 
-
-
-[node name="Barrage2" parent="." instance=ExtResource("4_lr7pk")]
+[node name="Barrage" parent="." instance=ExtResource("4_lr7pk")]
 position = Vector2(635, 256)
 
 [node name="Enemies" type="Node" parent="."]
