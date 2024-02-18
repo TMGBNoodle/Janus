@@ -24,7 +24,7 @@ var effects = []
 func set_health(__new_health : int):
 	return int(clamp(__new_health, 0, max_health))
 
-@onready var damage_timer : Timer = null#get_node("DamageTimer")
+@onready var damage_timer : Timer = get_node("damageTimer")
 
 
 
@@ -38,30 +38,20 @@ func Damage(damage):
 	damage_timer.wait_time = timerLength
 	var new_health : int = int(clamp(health - damage, 0, max_health))
 	self.health = new_health
-
-
 	damage_timer.start()
 	if health <= 0:
 		Destroy()
 	
 func _ready():
-
-	print(damage_timer)
-	damage_timer = get_node("damageTimer")
-	print(damage_timer, 2)
-	damage_timer.timeout.connect(Regen)
-	Regen()
+	pass # Replace with function body.
 
 
 func _on_hurtbox_area_entered(hitbox):
-
-	if hitbox.name == "Hitbox":
-		var base_damage = hitbox.damage
-		effects = hitbox.effects
-		self.Damage(hitbox.damage)
-		ManageEffects()
-		#print("Enemy Hit")
-
+	var base_damage = hitbox.damage
+	effects = hitbox.effects
+	self.Damage(hitbox.damage)
+	ManageEffects()
+	#print("Enemy Hit")
 	
 func Destroy():
 	emit_signal("status_destroyed")

@@ -57,7 +57,7 @@ func ChangeIdleSprite():
 	slimeMoveIndex += 1
 
 func SwitchFrame(frame):
-	#print("slime")
+	print("here")
 	slimeTexture.texture = load(frame)
 	nextFrame = false
 
