@@ -25,7 +25,7 @@ func doExplosion():
 	collision.scale = Vector2(size, size)
 	print(self.get_overlapping_areas())
 	var explode = create_tween()
-	explode.tween_property(sprite, "modulate", Color(0.8, 0, 0.1, 0.7), duration)
+	explode.tween_property(sprite, "modulate", Color(0.8, 0, 0.1, 0.9), duration)
 	explode.play()
 	explode.tween_callback(doFinal)
 # Called every frame. 'delta' is the elapsed time since the previous frame.

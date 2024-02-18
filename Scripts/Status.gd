@@ -64,6 +64,7 @@ func ManageEffects():
 		match i:
 			StatusEffectProperties.statusEffects.SLOW:
 				SendSlowSignal()
+				
 
 
 func _on_damage_timer_timeout():

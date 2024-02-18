@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm07bncugm3xs"]
 
 [ext_resource type="Texture2D" uid="uid://dvve6atjre64c" path="res://Sprites/ArtilleryBullet.png" id="1_p4jnu"]
-[ext_resource type="Script" path="res://Scenes/artillery.gd" id="2_4svec"]
+[ext_resource type="Script" path="res://Scripts/artillery.gd" id="2_6fneh"]
 
 [node name="Artillery" type="Sprite2D"]
 z_index = 1
@@ -9,6 +9,6 @@ z_as_relative = false
 position = Vector2(121, 150)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_p4jnu")
-script = ExtResource("2_4svec")
+script = ExtResource("2_6fneh")
 
 [connection signal="completed" from="." to="." method="_on_completed"]

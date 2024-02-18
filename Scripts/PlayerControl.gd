@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var Speed = 50
+@export var Speed = 75
 @onready var health = get_node("Status")
 
 var screen_size
