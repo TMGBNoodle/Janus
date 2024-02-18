@@ -11,29 +11,14 @@ enum Spells
 	SPELLBOLT,
 	ICEBOLT
 }
-var debounce = false
-var selectedspell = Spells.SPELLBOLT
-var cooldown = 0.5
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("ActionAttack")):
-		if debounce == false:
-			tweenBar.scale = Vector2(0.01, 0.43)
-			debounce = true
-			ShootSpell(selectedspell)
-			var reload = create_tween()
-			reload.tween_property(tweenBar, "scale", Vector2(1, 0.43), cooldown)
-			reload.tween_callback(debouncist)
-			
-	elif(Input.is_action_just_pressed("SpellSwitch")):
-		if selectedspell == Spells.SPELLBOLT:
-			selectedspell = Spells.ICEBOLT
-			cooldown = 1.5
-		elif selectedspell == Spells.ICEBOLT:
-			selectedspell = Spells.SPELLBOLT
-			cooldown = 0.5
-
-func debouncist():
-	debounce = false
+		ShootSpell(Spells.ICEBOLT)
 #Define all Spells
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
 @export var ICESPELL: PackedScene = preload("res://Scenes/IceSpell.tscn")
@@ -54,6 +39,7 @@ func ShootSpell(chosenSpell):
 	if chosenSpell == Spells.ICEBOLT:
 		if ICESPELL:
 			var spell = ICESPELL.instantiate()
+			print(get_tree().current_scene)
 			get_tree().current_scene.add_child(spell)
 			spell.global_position = get_owner().global_position
 			spell.scale = Vector2(1, 1)

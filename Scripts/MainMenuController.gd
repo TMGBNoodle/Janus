@@ -8,6 +8,10 @@ var startButtonDoorTexture
 func _ready():
 	print("mainmenu")
 	startButtonDoorTexture = get_node("MenuLayout").get_node("Doors").get_node("StartButtonDoorTexture")
+	if get_node("/root/WorldNode"):
+		get_node("/root/WorldNode").queue_free()
+	if get_node("/root/DeathScreen"):
+		get_node("/root/DeathScreen").queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,9 +20,10 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	var simultaneousScene = preload("res://Scenes/Main.tscn").instantiate()
-	AddScene(simultaneousScene)
-	get_node("/root/MainMenu").queue_free()
+	#var simultaneousScene = preload("res://Scenes/Main.tscn").instantiate()
+	#AddScene(simultaneousScene)
+	get_tree().change_scene_to_file	("res://Scenes/Main.tscn")
+	#get_node("/root/MainMenu").queue_free()
 	
 
 func AddScene(simultaneousScene):
