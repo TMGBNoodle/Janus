@@ -61,3 +61,15 @@ func _process(delta):
 	
 #Things that need physics math go here
 
+
+
+func _on_health_status_destroyed():
+	print("we arrived")
+	GameData.AddToPointTotal(int(get_node("GameTimer").GetTime()))
+	var simultaneousScene = preload("res://Scenes/DeathScreen.tscn").instantiate()
+	AddScene(simultaneousScene)
+
+func AddScene(simultaneousScene):
+	# This is like autoloading the scene, only
+	# it happens after already loading the main scene.
+	get_tree().root.add_child(simultaneousScene)

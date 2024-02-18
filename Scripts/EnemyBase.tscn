@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxkrh54se6qce"]
+[gd_scene load_steps=6 format=3 uid="uid://bxkrh54se6qce"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyController.gd" id="1_pngqa"]
 [ext_resource type="PackedScene" uid="uid://dyo8bmslbhbs2" path="res://Scenes/hurtbox.tscn" id="2_ug6pn"]
 [ext_resource type="Script" path="res://Scripts/Status.gd" id="4_1s3pg"]
+[ext_resource type="PackedScene" uid="uid://dg3dl7o3n32t3" path="res://Scenes/hitbox.tscn" id="4_85711"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pmsm"]
-size = Vector2(114, 109.5)
+size = Vector2(75, 76)
 
 [node name="EnemyBase" type="Node2D"]
 script = ExtResource("1_pngqa")
@@ -24,8 +25,12 @@ script = ExtResource("4_1s3pg")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 
+[node name="Hitbox" parent="." instance=ExtResource("4_85711")]
+collision_layer = 4
+
 [connection signal="area_entered" from="Hurtbox" to="Status" method="_on_hurtbox_area_entered"]
 [connection signal="status_destroyed" from="Status" to="." method="_on_status_status_destroyed"]
 [connection signal="status_slow" from="Status" to="." method="_on_status_status_slow"]
 
 [editable path="Hurtbox"]
+[editable path="Hitbox"]

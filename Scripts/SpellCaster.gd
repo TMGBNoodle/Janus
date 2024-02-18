@@ -39,6 +39,7 @@ func ShootSpell(chosenSpell):
 	if chosenSpell == Spells.ICEBOLT:
 		if ICESPELL:
 			var spell = ICESPELL.instantiate()
+			print(get_tree().current_scene)
 			get_tree().current_scene.add_child(spell)
 			spell.global_position = get_owner().global_position
 			spell.scale = Vector2(1, 1)
