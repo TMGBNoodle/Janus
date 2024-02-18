@@ -1,20 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxkrh54se6qce"]
+[gd_scene load_steps=5 format=3 uid="uid://bxkrh54se6qce"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyController.gd" id="1_pngqa"]
-[ext_resource type="Texture2D" uid="uid://dr5esatvluh0o" path="res://Sprites/TerribleEnemySprite.png" id="1_rrvbc"]
 [ext_resource type="PackedScene" uid="uid://dyo8bmslbhbs2" path="res://Scenes/hurtbox.tscn" id="2_ug6pn"]
 [ext_resource type="Script" path="res://Scripts/Status.gd" id="4_1s3pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pmsm"]
-size = Vector2(40, 40)
+size = Vector2(114, 109.5)
 
 [node name="EnemyBase" type="Node2D"]
 script = ExtResource("1_pngqa")
-
-[node name="TerribleEnemySprite" type="Sprite2D" parent="."]
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(5, 5)
-texture = ExtResource("1_rrvbc")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_ug6pn")]
 collision_layer = 4
@@ -27,6 +21,8 @@ shape = SubResource("RectangleShape2D_8pmsm")
 script = ExtResource("4_1s3pg")
 
 [node name="damageTimer" type="Timer" parent="Status"]
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
 
 [connection signal="area_entered" from="Hurtbox" to="Status" method="_on_hurtbox_area_entered"]
 [connection signal="status_destroyed" from="Status" to="." method="_on_status_status_destroyed"]

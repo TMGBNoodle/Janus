@@ -16,19 +16,28 @@ var spellCircleRadius: float = 70.0
 @export var waitTime:float = 1.0
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
 @export var Barrage: PackedScene = preload("res://Scenes/Barrage.tscn")
+@export var ICEBOLT: PackedScene = preload("res://Scenes/IceSpell.tscn")
+
+var SpellCasterNode = null
 
 #effect type enum
 enum{SPELL, STATUSEFFECT}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SpellCasterNode = self.get_node("SpellCaster")
+	
 	spriteFrames.append("res://TheDoor/Sprites/TheDoor.png")
 	spriteFrames.append("res://TheDoor/Sprites/TheDoor2.png")
 	
 	frameNum = spriteFrames.size()
 	
 	#Bolt added to possible effects
-	possibleEffects.append(SPELLBOLT)
+	possibleEffects.append(SpellCasterNode.Spells.SPELLBOLT)
+	possibleEffectTypes.append(SPELL)
+	
+	#icebolt added to possible effects
+	possibleEffects.append(SpellCasterNode.Spells.ICEBOLT)
 	possibleEffectTypes.append(SPELL)
 	
 	#adding player to targets
@@ -67,7 +76,7 @@ func CastEffect():
 				var xOffset = spellCircleRadius * (cos(spellAngle))
 				var yOffset = spellCircleRadius * (sin(spellAngle))
 				print(Vector2(xOffset, yOffset))
-				self.get_node("SpellCaster").ShootSpellOffset(possibleTargets[targetIndex].global_position, Vector2(xOffset, yOffset))
+				self.get_node("SpellCaster").ShootSpellOffset(possibleEffects[effectIndex], possibleTargets[targetIndex].global_position, Vector2(xOffset, yOffset))
 				spellAngle += spellAngle
 
 func SwitchFrame(frame):

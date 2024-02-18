@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjxdtov7gkhnc"]
+
+[ext_resource type="Texture2D" uid="uid://c47estfiyi0l3" path="res://Sprites/MenuTestSprites/JanusTitleName.png" id="1_hsaby"]
+[ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_k648u"]
+[ext_resource type="Texture2D" uid="uid://b33uxmhkk0hje" path="res://TheDoor/Sprites/TheDoor.png" id="3_bc85y"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_k648u")
+
+[node name="MenuLayout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TitleTexture" type="TextureRect" parent="MenuLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.51
+texture = ExtResource("1_hsaby")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Doors" type="HBoxContainer" parent="MenuLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButtonDoorTexture" type="TextureRect" parent="MenuLayout/Doors"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_bc85y")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="HBoxContainer" parent="MenuLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="MenuLayout/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="Button" type="Button" parent="MenuLayout/Buttons"]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="MenuLayout/Buttons/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuLayout/Buttons/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="MenuLayout/Buttons/StartButton" to="." method="_on_button_pressed"]

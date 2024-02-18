@@ -8,9 +8,9 @@ func _ready():
 
 enum Spells 
 {
-	SpellBolt,
-	IceBolt,
-	Barrage
+	SPELLBOLT,
+	ICEBOLT,
+	BARRAGE
 }
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,7 +19,7 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("ActionAttack")):
-		ShootSpell(Spells.IceBolt)
+		ShootSpell(Spells.ICEBOLT)
 #Define all Spells
 @export var SPELLBOLT: PackedScene = preload("res://Scenes/Bolt.tscn")
 @export var ICESPELL: PackedScene = preload("res://Scenes/IceSpell.tscn")
@@ -27,7 +27,7 @@ func _physics_process(_delta):
 func ShootSpell(chosenSpell):
 	print("Fire1")
 	#Change to shoot different spells
-	if chosenSpell == Spells.SpellBolt:
+	if chosenSpell == Spells.SPELLBOLT:
 		if SPELLBOLT:
 			var spell = SPELLBOLT.instantiate()
 			get_tree().current_scene.add_child(spell)
@@ -37,7 +37,7 @@ func ShootSpell(chosenSpell):
 			var spellRotation = get_owner().global_position.direction_to(get_owner().get_global_mouse_position()).angle()
 			spell.rotation = spellRotation
 			
-	if chosenSpell == Spells.IceBolt:
+	if chosenSpell == Spells.ICEBOLT:
 		if ICESPELL:
 			var spell = ICESPELL.instantiate()
 			get_tree().current_scene.add_child(spell)
@@ -50,7 +50,7 @@ func ShootSpell(chosenSpell):
 func ShootSpellOffset(chosenSpell, Target, Offset:Vector2 = Vector2(0,0)):
 	print("Fire2")
 	#Change to shoot different spells
-	if chosenSpell == Spells.SpellBolt:
+	if chosenSpell == Spells.SPELLBOLT:
 		if SPELLBOLT:
 			var spell = SPELLBOLT.instantiate()
 			get_tree().current_scene.add_child(spell)
@@ -59,7 +59,7 @@ func ShootSpellOffset(chosenSpell, Target, Offset:Vector2 = Vector2(0,0)):
 			#print(Target.angle())
 			var spellRotation = get_owner().global_position.direction_to(Target).angle()
 			spell.rotation = spellRotation
-	if chosenSpell == Spells.IceBolt:
+	if chosenSpell == Spells.ICEBOLT:
 		if ICESPELL:
 			var spell = ICESPELL.instantiate()
 			get_tree().current_scene.add_child(spell)

@@ -6,22 +6,28 @@ signal enemy_base_destroyed
 var moveSpeed = 50
 var speedModifier = 1
 
+var isSlowed: bool = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
 	#print(self.position.x, self.position.y)
-	var processedMoveSpeed = moveSpeed * speedModifier
-	self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
+	if isSlowed:
+		get_parent().isSlowed = true
+	#self.position = self.position.move_toward(Vector2(0,0), delta * processedMoveSpeed)
   
 func Delete():
 	queue_free()
 
 func _on_status_status_destroyed():
 	print("enemy killed")
-	Delete()
 	emit_signal("enemy_base_destroyed")
+	Delete()
+	
 
 
 func _on_status_status_slow():
-	speedModifier *= StatusEffectProperties.slowSpeedModifier
+	isSlowed = true
+	#speedModifier *= StatusEffectProperties.slowSpeedModifier
+
