@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_k648u"]
 [ext_resource type="Texture2D" uid="uid://b33uxmhkk0hje" path="res://TheDoor/Sprites/TheDoor.png" id="3_bc85y"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm0sd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfgau"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lrjp"]
 
@@ -37,8 +37,8 @@ fit_content = true
 layout_mode = 2
 
 [node name="StartButtonDoorTexture" type="Sprite2D" parent="MenuLayout/Doors"]
-position = Vector2(450, 99)
-scale = Vector2(5.7, 5)
+position = Vector2(1075, 150)
+scale = Vector2(7, 7)
 texture = ExtResource("3_bc85y")
 
 [node name="Buttons" type="HBoxContainer" parent="MenuLayout"]
@@ -48,14 +48,16 @@ size_flags_vertical = 3
 [node name="MarginContainer" type="MarginContainer" parent="MenuLayout/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 395
-theme_override_constants/margin_right = 395
-theme_override_constants/margin_bottom = 210
+theme_override_constants/margin_left = 1005
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 1000
+theme_override_constants/margin_bottom = 480
 
 [node name="StartButton" type="Button" parent="MenuLayout/Buttons/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mm0sd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wfgau")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5lrjp")
 text = "Start"
 
