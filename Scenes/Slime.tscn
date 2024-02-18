@@ -27,3 +27,4 @@ texture = ExtResource("8_qfdvc")
 
 [editable path="EnemyBase"]
 [editable path="EnemyBase/Hurtbox"]
+[editable path="EnemyBase/Hitbox"]
